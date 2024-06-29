@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/form.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom styles for this template -->
+    <link href="../static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="../static/css/responsive.css" rel="stylesheet" />
+</head>
+<style>
+    #form-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+  </style>
+<body>
+    <div class="hero_area">
+        <!-- header section strats -->
+        <header class="header_section">
+          <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container">
+              <a class="navbar-brand" href="index.html">
+                <img src="../static/images/logo.png" alt="" />
+                <span> F i t f u e l </span>
+              </a>
+            </nav>
+          </div>
+        </header>
+        <!-- end header section -->
+        <!-- slider section -->
+        <section class="slider_section position-relative">
+          <div class="side_heading">
+            <h5>F I T F U E L</h5>
+          </div>
+        </section>
+        <!-- end slider section -->
+      </div> 
+    <div class="form-modal" style="position: absolute; top: 0">
+        <h1 style="text-align: center;padding: 1rem;">Complete Your Profile</h1>
+        <div id="login-form" style="text-align: center;">
+          <form  method="post" onsubmit="return loginValidate()" action="/survey">
+            {% csrf_token %}
+
+            <input type="number" placeholder="Enter age" name="age" id="age"/><br>
+            <select name="gender" id="gender">
+                <option value="male" selected>Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br>
+            <input type="number" placeholder="Enter weight" name="weight" id="weight"/><br>
+            <input type="number" placeholder="Enter height" name="height" id="height"/><br>
+            <select name="diet2" id="diet2">
+                <option value="veg" selected>Veg</option>
+                <option value="nonveg">Non Veg</option>
+            </select>
+            <select name="goal" id="goal">
+                <option value="l_weight" selected>loose weight</option>
+                <option value="g_weight">gain weight</option>
+            </select>
+            <button class="btn login">Submit</button>
+            <br><br><br>
+            <hr />
+          </form>
+        </div>
+      </div>
+</body>
+<script src="../static/js/form.js"></script>
+<script>
+    function cardValidate(){
+        var flage = true
+        var flage1 = true
+        var flage2 = true
+        var flage3 = true
+        var flage = true
+        age = document.getElementById('age')
+        if(age.value == ""){
+            flage = false
+            console.log("Age");
+            age.placeholder = "this field must mot be empty"
+        }else{
+            document.getElementById('age').plaholder = "Enter Age"
+            flage = true
+        }
+        gender = document.getElementById('gender')
+        var flage1 = true
+        if(gender.value == ""){
+            flage1 = false
+            console.log("gender");
+            gender.placeholder = "this field must mot be empty"
+        }else{
+            document.getElementById('gender').plaholder = "Enter gender"
+            flage1 = true
+        }
+        weight = document.getElementById('weight')
+        var flage2 = true
+        if(weight.value == ""){
+            flage2 = false
+            console.log("weight");
+            weight.placeholder = "this field must mot be empty"
+        }else{
+            document.getElementById('weight').plaholder = "Enter weight"
+            flage2 = true
+        }
+        height = document.getElementById('height')
+        var flage3 = true
+        if(height.value == ""){
+            flage3 = false
+            console.log("height");
+            height.placeholder = "this field must mot be empty"
+        }else{
+            document.getElementById('height').plaholder = "Enter height"
+            flage3 = true
+        }
+        return flage && flage1 && flage2 && flage3
+    }
+
+</script>
+</html>
